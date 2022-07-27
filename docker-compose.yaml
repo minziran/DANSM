@@ -1,0 +1,621 @@
+version: '3.8'
+
+services:
+  free5gc-upf-0:
+    container_name: upf0
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml" #./free5gc-upfd -f ../config/upfcfg.yaml
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfgb.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf0.free5gc.org
+        ipv4_address: 10.100.200.200
+
+  free5gc-upf-1:
+    container_name: upf1
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml" #./free5gc-upfd -f ../config/upfcfg.yaml
+    volumes:
+      - ./config/upfcfg1.yaml:/free5gc/config/upfcfg.yaml
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf1.free5gc.org
+        ipv4_address: 10.100.200.201
+
+  free5gc-upf-2:
+    container_name: upf2
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg2.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf2.free5gc.org
+        ipv4_address: 10.100.200.202
+
+  free5gc-upf-3:
+    container_name: upf3
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg3.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf3.free5gc.org
+        ipv4_address: 10.100.200.203
+
+  free5gc-upf-4:
+    container_name: upf4
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg4.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf4.free5gc.org
+        ipv4_address: 10.100.200.204
+
+  free5gc-upf-5:
+    container_name: upf5
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg5.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf5.free5gc.org
+        ipv4_address: 10.100.200.205
+
+#  free5gc-upf-6:
+#    container_name: upf6
+#    build:
+#      context: ./nf_upf
+#      args:
+#        DEBUG_TOOLS: "false"
+#    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+#    volumes:
+#      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+#      - ./config/upfcfg6.yaml:/free5gc/config/upfcfg.yaml
+#    cap_add:
+#      - NET_ADMIN
+#    restart: unless-stopped
+#    networks:
+#      privnet:
+#        aliases:
+#          - upf6.free5gc.org
+#        ipv4_address: 10.100.200.206
+
+  free5gc-upf-7:
+    container_name: upf7
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg7.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf7.free5gc.org
+        ipv4_address: 10.100.200.207
+
+  free5gc-upf-8:
+    container_name: upf8
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg8.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf8.free5gc.org
+        ipv4_address: 10.100.200.208
+
+  free5gc-upf-9:
+    container_name: upf9
+    build:
+      context: ./nf_upf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "chmod +x upf-iptables.sh && ./upf-iptables.sh && ./free5gc-upfd -f ../config/upfcfg.yaml"
+    volumes:
+      - ./config/upf-iptables.sh:/free5gc/free5gc-upfd/upf-iptables.sh
+      - ./config/upfcfg9.yaml:/free5gc/config/upfcfg.yaml
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - upf9.free5gc.org
+        ipv4_address: 10.100.200.209
+
+  db:
+    container_name: mongodb
+    image: mongo:4.4
+    command: mongod --port 27017
+    expose:
+      - "27017"
+    volumes:
+      - dbdata:/data/db
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - db
+
+  free5gc-nrf:
+    container_name: nrf
+    build:
+      context: ./nf_nrf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nrf -nrfcfg ../config/nrfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/nrfcfg.yaml:/free5gc/config/nrfcfg.yaml
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - nrf.free5gc.org
+    depends_on:
+      - db
+
+  free5gc-amf:
+    container_name: amf
+    build:
+      context: ./nf_amf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./amf -amfcfg ../config/amfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/amfcfg.yaml:/free5gc/config/amfcfg.yaml
+    environment:
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - amf.free5gc.org
+        ipv4_address: 10.100.200.102
+
+    depends_on:
+      - free5gc-nrf
+
+  free5gc-ausf:
+    container_name: ausf
+    build:
+      context: ./nf_ausf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./ausf -ausfcfg ../config/ausfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/ausfcfg.yaml:/free5gc/config/ausfcfg.yaml
+    environment:
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - ausf.free5gc.org
+    depends_on:
+      - free5gc-nrf
+
+  free5gc-nssf:
+    container_name: nssf
+    build:
+      context: ./nf_nssf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./nssf -nssfcfg ../config/nssfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/nssfcfg.yaml:/free5gc/config/nssfcfg.yaml
+    environment:
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - nssf.free5gc.org
+    depends_on:
+      - free5gc-nrf
+
+  free5gc-pcf:
+    container_name: pcf
+    build:
+      context: ./nf_pcf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./pcf -pcfcfg ../config/pcfcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/pcfcfg.yaml:/free5gc/config/pcfcfg.yaml
+    environment:
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - pcf.free5gc.org
+    depends_on:
+      - free5gc-nrf
+
+  free5gc-smf:
+    container_name: smf
+    build:
+      context: ./nf_smf
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./smf -smfcfg ../config/smfcfg.yaml -uerouting ../config/uerouting.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/smfcfg.yaml:/free5gc/config/smfcfg.yaml
+      - ./config/uerouting.yaml:/free5gc/config/uerouting.yaml
+    environment:
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - smf.free5gc.org
+    depends_on:
+      - free5gc-nrf
+      - free5gc-upf-1
+      - free5gc-upf-2
+      - free5gc-upf-3
+      - free5gc-upf-4
+      - free5gc-upf-0
+    tty: true
+
+  free5gc-udm:
+    container_name: udm
+    build:
+      context: ./nf_udm
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./udm -udmcfg ../config/udmcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/udmcfg.yaml:/free5gc/config/udmcfg.yaml
+    environment:
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - udm.free5gc.org
+    depends_on:
+      - db
+      - free5gc-nrf
+
+  free5gc-udr:
+    container_name: udr
+    build:
+      context: ./nf_udr
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./udr -udrcfg ../config/udrcfg.yaml
+    expose:
+      - "8000"
+    volumes:
+      - ./config/udrcfg.yaml:/free5gc/config/udrcfg.yaml
+    environment:
+      DB_URI: mongodb://db/free5gc
+      GIN_MODE: release
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - udr.free5gc.org
+    depends_on:
+      - db
+      - free5gc-nrf
+
+  free5gc-n3iwf:
+    container_name: n3iwf
+    build:
+      context: ./nf_n3iwf
+      args:
+        DEBUG_TOOLS: "false"
+    command: sh -c "./n3iwf-ipsec.sh && ./n3iwf -n3iwfcfg ../config/n3iwfcfg.yaml"
+    volumes:
+      - ./config/n3iwfcfg.yaml:/free5gc/config/n3iwfcfg.yaml
+      - ./config/n3iwf-ipsec.sh:/free5gc/n3iwf/n3iwf-ipsec.sh
+    environment:
+      GIN_MODE: release
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks:
+      privnet:
+        aliases:
+          - n3iwf.free5gc.org
+    depends_on:
+      - free5gc-amf
+      - free5gc-smf
+      - free5gc-upf-0
+      - free5gc-upf-1
+      - free5gc-upf-2
+      - free5gc-upf-3
+      - free5gc-upf-4
+
+  free5gc-webui:
+    container_name: webui
+    build:
+      context: ./webui
+      args:
+        DEBUG_TOOLS: "false"
+    command: ./webui
+    volumes:
+      - ./config/webuicfg.yaml:/free5gc/config/webuicfg.yaml
+    environment:
+      - GIN_MODE=release
+    cap_add:
+      - NET_ADMIN
+    networks:
+      privnet:
+        aliases:
+          - webui
+    restart: unless-stopped
+    ports:
+      - "5002:5000"
+    depends_on:
+      - free5gc-nrf
+      - db
+  
+  ueransim-gnb:
+    container_name: ueransim-gnb
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/ovs-2/free5gc-gnb.yaml:/root/UERANSIM/config/free5gc-gnb.yaml
+    command: >
+      bash -c "/root/UERANSIM/build/nr-gnb -c /root/UERANSIM/config/free5gc-gnb.yaml"
+#      &&/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    restart: unless-stopped
+    networks:
+      uenet:
+        aliases:
+          - ueransim.gnb
+        ipv4_address: 20.100.200.103
+    depends_on:
+      - free5gc-amf
+      - free5gc-nrf
+      - free5gc-upf-0
+      - free5gc-upf-1
+      - free5gc-upf-2
+      - free5gc-upf-3
+      - free5gc-upf-4
+    tty: true
+
+#  ueransim-gnb-2:
+#    container_name: ueransim-gnb-2
+#    image: minziran/ueransim:v1.0.2
+#    cap_add:
+#      - NET_ADMIN
+#    devices:
+#      - /dev/net/tun
+#    volumes:
+#      - ./ueransim/free5gc-gnb-2.yaml:/root/UERANSIM/config/free5gc-gnb.yaml
+#    command: > 
+#      bash -c "/root/UERANSIM/build/nr-gnb -c /root/UERANSIM/config/free5gc-gnb.yaml" 
+##      &&/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#    networks:
+#      privnet:
+#        aliases:
+#          - ueransim.gnb-2
+#        ipv4_address: 10.100.200.107
+#    depends_on:
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+#      - ueransim-gnb
+#    tty: true  
+
+  ueransim-ue-5G-Camera:
+    container_name: ueransim-ue-5G-Camera
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-5G-Camera.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#      - ./ueransim/free5gc-ue-5G-Camera-2.yaml:/root/UERANSIM/config/free5gc-ue-2.yaml
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#       && bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue-2.yaml"
+#       && bash -c "ifconfig"
+    restart: unless-stopped
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.5G.Camera
+        ipv4_address: 20.100.200.104
+    depends_on:
+      - ueransim-gnb
+#      - ueransim-gnb-2
+      - free5gc-amf
+      - free5gc-nrf
+      - free5gc-upf-0
+      - free5gc-upf-1
+      - free5gc-upf-2
+      - free5gc-upf-3
+      - free5gc-upf-4
+    tty: true
+
+
+  ueransim-ue-Robot-Arm:
+    container_name: ueransim-ue-Robot-Arm
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Robot-Arm.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    restart: unless-stopped
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Robot.Arm
+        ipv4_address: 20.100.200.105
+    depends_on:
+      - ueransim-gnb
+#      - ueransim-gnb-2
+      - free5gc-amf
+      - free5gc-nrf
+      - free5gc-upf-0
+      - free5gc-upf-1
+      - free5gc-upf-2
+      - free5gc-upf-3
+      - free5gc-upf-4
+      - ueransim-ue-5G-Camera
+    tty: true
+
+  ueransim-ue-Edge-Devices:
+    container_name: ueransim-ue-Edge-Devices
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Edge-Devices.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+ #   command: >
+ #     bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Edge.Devices
+        ipv4_address: 20.100.200.106
+    depends_on:
+      - ueransim-gnb
+ #     - ueransim-gnb-2
+      - free5gc-amf
+      - free5gc-nrf
+      - free5gc-upf-0
+      - free5gc-upf-1
+      - free5gc-upf-2
+      - free5gc-upf-3
+      - free5gc-upf-4
+      - ueransim-ue-5G-Camera
+      - ueransim-ue-Robot-Arm
+    tty: true
+
+#  ryu:
+#    container_name: ryu
+#    image: osrg/ryu:latest
+#    working_dir: /root/ryu/ryu/app
+#    command: ryu run gui_topology/gui_topology.py simple_switch.py --observe-links
+#    expose:
+#      - "6633"
+#    cap_add:
+#      - NET_ADMIN
+#    ports:
+#      - "6633:6633"
+#      - "8082:8080"
+#    volumes:
+#      - dbdata:/data/db
+#    networks:
+#      privnet:
+#        aliases:
+#          - ryu
+#    tty: true
+
+
+networks:
+  privnet:
+    external: true
+  uenet:
+    external: true
+
+volumes:
+  dbdata:

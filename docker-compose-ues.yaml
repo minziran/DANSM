@@ -1,0 +1,385 @@
+version: '3.8'
+
+services:
+ ueransim-ue-5G-Camera2:
+    container_name: ueransim-ue-5G-Camera2
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-5G-Camera-2.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#       && bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue-2.yaml"
+#       && bash -c "ifconfig"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.5G.Camera2
+        ipv4_address: 20.100.200.107
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+    tty: true
+
+ ueransim-ue-5G-Camera3:
+    container_name: ueransim-ue-5G-Camera3
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-5G-Camera-3.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#       && bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue-2.yaml"
+#       && bash -c "ifconfig"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.5G.Camera3
+        ipv4_address: 20.100.200.110
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+    tty: true
+
+ ueransim-ue-5G-Camera4:
+    container_name: ueransim-ue-5G-Camera4
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-5G-Camera-4.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#       && bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue-2.yaml"
+#       && bash -c "ifconfig"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.5G.Camera4
+        ipv4_address: 20.100.200.113
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+    tty: true
+##
+# ueransim-ue-5G-Camera5:
+#    container_name: ueransim-ue-5G-Camera5
+#    image: minziran/ueransim:v1.0.4
+#    cap_add:
+#      - NET_ADMIN
+#    devices:
+#      - /dev/net/tun
+#    volumes:
+#      - ./ueransim/free5gc-ue-5G-Camera-5.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+#      - ./ueransim/ue_task.py:/root/ue_task.py
+##    command: >
+##      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+##       && bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue-2.yaml"
+##       && bash -c "ifconfig"
+#    networks:
+#      uenet:
+#        aliases:
+#          - ueransim.ue.5G.Camera5
+#        ipv4_address: 20.100.200.116
+##    depends_on:
+##      - ueransim-gnb
+##      - ueransim-gnb-2
+##      - free5gc-amf
+##      - free5gc-nrf
+##      - free5gc-upf-b
+##      - free5gc-upf-1
+##      - free5gc-upf-2
+##      - free5gc-upf-3
+##      - free5gc-upf-4
+#    tty: true
+#
+ ueransim-ue-Robot-Arm2:
+    container_name: ueransim-ue-Robot-Arm2
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Robot-Arm-2.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Robot.Arm2
+        ipv4_address: 20.100.200.108
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+#      - ueransim-ue-5G-Camera
+    tty: true
+
+ ueransim-ue-Robot-Arm3:
+    container_name: ueransim-ue-Robot-Arm3
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Robot-Arm-3.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Robot.Arm3
+        ipv4_address: 20.100.200.111
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+#      - ueransim-ue-5G-Camera
+    tty: true
+#
+ ueransim-ue-Robot-Arm4:
+    container_name: ueransim-ue-Robot-Arm4
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Robot-Arm-4.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Robot.Arm4
+        ipv4_address: 20.100.200.114
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+#      - ueransim-ue-5G-Camera
+    tty: true
+#
+# ueransim-ue-Robot-Arm5:
+#    container_name: ueransim-ue-Robot-Arm5
+#    image: minziran/ueransim:v1.0.4
+#    cap_add:
+#      - NET_ADMIN
+#    devices:
+#      - /dev/net/tun
+#    volumes:
+#      - ./ueransim/free5gc-ue-Robot-Arm-5.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+#      - ./ueransim/ue_task.py:/root/ue_task.py
+##    command: >
+##      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#    networks:
+#      uenet:
+#        aliases:
+#          - ueransim.ue.Robot.Arm5
+#        ipv4_address: 20.100.200.117
+##    depends_on:
+##      - ueransim-gnb
+##      - ueransim-gnb-2
+##      - free5gc-amf
+##      - free5gc-nrf
+##      - free5gc-upf-b
+##      - free5gc-upf-1
+##      - free5gc-upf-2
+##      - free5gc-upf-3
+##      - free5gc-upf-4
+##      - ueransim-ue-5G-Camera
+#    tty: true
+#
+ ueransim-ue-Edge-Devices2:
+    container_name: ueransim-ue-Edge-Devices2
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Edge-Devices-2.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Edge.Devices2
+        ipv4_address: 20.100.200.109
+    tty: true
+
+ ueransim-ue-Edge-Devices3:
+    container_name: ueransim-ue-Edge-Devices3
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Edge-Devices-3.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Edge.Devices3
+        ipv4_address: 20.100.200.112
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+#      - ueransim-ue-5G-Camera
+#      - ueransim-ue-Robot-Arm
+    tty: true
+
+ ueransim-ue-Edge-Devices4:
+    container_name: ueransim-ue-Edge-Devices4
+    image: minziran/ueransim:v1.0.4
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    volumes:
+      - ./ueransim/free5gc-ue-Edge-Devices-4.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+      - ./ueransim/ue_task.py:/root/ue_task.py
+#    command: >
+#      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+    networks:
+      uenet:
+        aliases:
+          - ueransim.ue.Edge.Devices4
+        ipv4_address: 20.100.200.115
+#    depends_on:
+#      - ueransim-gnb
+#      - ueransim-gnb-2
+#      - free5gc-amf
+#      - free5gc-nrf
+#      - free5gc-upf-b
+#      - free5gc-upf-1
+#      - free5gc-upf-2
+#      - free5gc-upf-3
+#      - free5gc-upf-4
+#      - ueransim-ue-5G-Camera
+#      - ueransim-ue-Robot-Arm
+    tty: true
+
+# ueransim-ue-Edge-Devices5:
+#    container_name: ueransim-ue-Edge-Devices5
+#    image: minziran/ueransim:v1.0.4
+#    cap_add:
+#      - NET_ADMIN
+#    devices:
+#      - /dev/net/tun
+#    volumes:
+#      - ./ueransim/free5gc-ue-Edge-Devices-5.yaml:/root/UERANSIM/config/free5gc-ue.yaml
+#      - ./ueransim/ue_task.py:/root/ue_task.py
+##    command: >
+##      bash -c "/root/UERANSIM/build/nr-ue -c /root/UERANSIM/config/free5gc-ue.yaml"
+#    networks:
+#      uenet:
+#        aliases:
+#          - ueransim.ue.Edge.Devices5
+#        ipv4_address: 20.100.200.118
+##    depends_on:
+##      - ueransim-gnb
+##      - ueransim-gnb-2
+##      - free5gc-amf
+##      - free5gc-nrf
+##      - free5gc-upf-b
+##      - free5gc-upf-1
+##      - free5gc-upf-2
+##      - free5gc-upf-3
+##      - free5gc-upf-4
+##      - ueransim-ue-5G-Camera
+##      - ueransim-ue-Robot-Arm
+#    tty: true
+#  ryu:
+#    container_name: ryu
+#    image: osrg/ryu:latest
+#    working_dir: /root/ryu/ryu/app
+#    command: ryu run gui_topology/gui_topology.py simple_switch.py --observe-links
+#    expose:
+#      - "6633"
+#    cap_add:
+#      - NET_ADMIN
+#    ports:
+#      - "6633:6633"
+#      - "8082:8080"
+#    volumes:
+#      - dbdata:/data/db
+#    networks:
+#      privnet:
+#        aliases:
+#          - ryu
+#    tty: true
+
+
+networks:
+  uenet:
+    external: true
+
+volumes:
+  dbdata:
